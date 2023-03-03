@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<img src="logo.png" alt="logo">
+	<h1>Global Finance</h1>
+	<title>Lamborghini Huracan</title>
+	<ul class="menu cf">
+		<li><a href="">Home</a></li>
+		<li>
+			<a href="">Customer Stuff</a>
+			<ul class="submenu">
+				<li><a href="">Make Payment</a></li>
+				<li><a href="">Submenu item</a></li>
+				<li><a href="">Submenu item</a></li>
+				<li><a href="">Login</a></li>
+			</ul>
+		</li>
+		<li><a href="scroll.html">Home</a></li>
+		<li><a href="">Contact Us</a></li>
+		<li><a href="login.html">Log In</a></li>
+	</ul>
+	<style>
+		body {
+			background-color: black;
+			font-family: Arial, sans-serif;
+			color: white;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			margin: 30px auto;
+			max-width: 1200px;
+			padding: 20px;
+			border: 2px solid white;
+			border-radius: 10px;
+			box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+		}
+
+		.image-container {
+			flex: 1;
+			padding: 20px;
+		}
+
+		iframe {
+			display: block;
+			margin: 0 auto;
+			width: 750px;
+			height: 400px;
+			border: none;
+			border-radius: 10px;
+			box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+		}
+
+		.description-container {
+			flex: 1;
+			padding: 20px;
+		}
+
+		h1 {
+			font-size: 36px;
+			margin-top: 0;
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		button {
+			display: block;
+			margin: 20px auto;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			background-color: #1CAAD9;
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #0B8DA5;
+		}
+		/* ------------------------------------- */
+
+		/* Clearing floats */
+		.cf:before,
+		.cf:after {
+		  content: " ";
+		  display: table;
+		}
+
+		.cf:after {
+		  clear: both;
+		}
+
+		.cf {
+		  *zoom: 1;
+		}
+
+		/* Mini reset, no margins, paddings or bullets */
+		.menu,
+		.submenu {
+		  margin: 0;
+		  padding: 0;
+		  list-style: none;
+		}
+
+		/* Main level */
+		.menu {
+		  margin: 50px auto;
+		  width: 800px;
+		  /* http://www.red-team-design.com/horizontal-centering-using-css-fit-content-value */
+		  width: -moz-fit-content;
+		  width: -webkit-fit-content;
+		  width: fit-content;
+		}
+
+		.menu > li {
+		  background: #34495e;
+		  float: left;
+		  position: relative;
+		  transform: skewX(25deg);
+		}
+
+		.menu a {
+		  display: block;
+		  color: #fff;
+		  text-transform: uppercase;
+		  text-decoration: none;
+		  font-family: Arial, Helvetica;
+		  font-size: 14px;
+		}
+
+		.menu li:hover {
+		  background: #e74c3c;
+		}
+
+		.menu > li > a {
+		  transform: skewX(-25deg);
+		  padding: 1em 2em;
+		}
+
+		/* Dropdown */
+		.submenu {
+		  position: absolute;
+		  width: 200px;
+		  left: 50%; margin-left: -100px;
+		  transform: skewX(-25deg);
+		  transform-origin: left top;
+		}
+
+		.submenu li {
+		  background-color: #34495e;
+		  position: relative;
+		  overflow: hidden;
+		}
+
+		.submenu > li > a {
+		  padding: 1em 2em;
+		}
+
+		.submenu > li::after {
+		  content: '';
+		  position: absolute;
+		  top: -125%;
+		  height: 100%;
+		  width: 100%;
+		  box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+		}
+
+		/* Odd stuff */
+		.submenu > li:nth-child(odd){
+		  transform: skewX(-25deg) translateX(0);
+		}
+
+		.submenu > li:nth-child(odd) > a {
+		  transform: skewX(25deg);
+		}
+
+		.submenu > li:nth-child(odd)::after {
+		  right: -50%;
+		  transform: skewX(-25deg) rotate(3deg);
+		}
+
+		/* Even stuff */
+		.submenu > li:nth-child(even){
+		  transform: skewX(25deg) translateX(0);
+		}
+
+		.submenu > li:nth-child(even) > a {
+		  transform: skewX(-25deg);
+		}
+
+		.submenu > li:nth-child(even)::after {
+		  left: -50%;
+		  transform: skewX(25deg) rotate(3deg);
+		}
+
+		/* Show dropdown */
+		.submenu,
+		.submenu li {
+		  opacity: 0;
+		  visibility: hidden;
+		}
+
+		.submenu li {
+		  transition: .2s ease transform;
+		}
+
+		.menu > li:hover .submenu,
+		.menu > li:hover .submenu li {
+		  opacity: 1;
+		  visibility: visible;
+		}
+
+		.menu > li:hover .submenu li:nth-child(even){
+		  transform: skewX(25deg) translateX(15px);
+		}
+
+		.menu > li:hover .submenu li:nth-child(odd){
+		  transform: skewX(-25deg) translateX(-15px);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="image-container">
+			<div class="sketchfab-embed-wrapper">
+				<iframe title="Lambo Huracan sports car" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9390d8585cb345679e4309f62392177d/embed"></iframe>
+			</div>
+			<div class="button-container">
+				<button onclick="location.href='https://www.example.com/buy';">Buy this car</button>
+				<button onclick="location.href='https://www.example.com/dealers';">Find a local dealership</button>
+			</div>
+		</div>
+		<div class="description-container">
+			<h1>Lamborghini Huracan</h1>
+			<p>The Lamborghini Huracan is a sports car built by Lamborghini, a subsidiary of Audi. It was introduced in 2014 as the successor to the Lamborghini Gallardo. The Huracan is powered by a 5.2-liter naturally aspirated V10 engine that produces 602 horsepower and 413 lb-ft off</p>
+</body>
+</html>

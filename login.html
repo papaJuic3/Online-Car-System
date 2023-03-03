@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Login / Sign Up Form</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="./styles/login.css">
+    <h1>Global Finance</h1>
+    <ul class="menu cf">
+      <li><a href="">Home</a></li>
+      <li>
+        <a href="">Customer Stuff</a>
+        <ul class="submenu">
+          <li><a href="">Make Payment</a></li>
+          <li><a href="">Submenu item</a></li>
+          <li><a href="">Submenu item</a></li>
+          <li><a href="">Login</a></li>
+        </ul>
+      </li>
+      <li><a href="scroll.html">Home</a></li>
+      <li><a href="">Contact Us</a></li>
+      <li><a href="login.html">Log In</a></li>
+    </ul>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="login">
+          <form action="includes/signup.inc.php" method="post">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" id="signInUsername" autofocus placeholder="Username / email">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" id="signInPassword" autofocus placeholder="Password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Continue</button>
+            <p class="form__text">
+
+            </p>
+            <p class="form__text">
+                <a class="form__link" href="./" id="linkCreateAccount">No account? Register here:</a>
+            </p>
+        </form>
+
+<!-- - -->
+
+        <form class="form form--hidden" id="createAccount">
+            <h1 class="form__title">Sign Up</h1>
+            <form action="includes/signup.inc.php" method="post">
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="text" id="signupEmail" class="form__input" autofocus placeholder="Email Address">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" id="signupPassword1" class="form__input" autofocus placeholder="Password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" id="signupPassword2" class="form__input" autofocus placeholder="Confirm password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Sign Up</button>
+            <p class="form__text">
+                <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
+            </p>
+        </form>
+    </div>
+    <script src="./js/login.js"></script>
+</body>
+
+
+<?php
+  <!-- include_once 'header.php'; -->
+  <section class="signup-form">
+      <input type="text" name="name" placeholder="Full Name">
+      <input type="text" name="email" placeholder="Full Name">
+      <input type="text" name="uname" placeholder="Full Name">
+      <input type="password" name="pwd" placeholder="Full Name">
+      <input type="password" name="pwdrepeat" placeholder="Full Name">
+      <button type="submit" name="submit">Sign Up</button>
+?>

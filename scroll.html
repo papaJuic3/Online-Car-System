@@ -1,0 +1,77 @@
+<link href="scroll.css" rel="stylesheet" />
+<img src="logo.png" alt="logo">
+<h1>Global Finance</h1>
+<ul class="menu cf">
+  <li><a href="">Home</a></li>
+  <li>
+    <a href="">Customer Stuff</a>
+    <ul class="submenu">
+      <li><a href="">Make Payment</a></li>
+      <li><a href="">Submenu item</a></li>
+      <li><a href="">Submenu item</a></li>
+      <li><a href="">Login</a></li>
+    </ul>
+  </li>
+  <li><a href="scroll.html">Home</a></li>
+  <li><a href="">Contact Us</a></li>
+  <li><a href="login.html">Log In</a></li>
+</ul>
+    <br>
+    <br>
+    <br>
+    <h2>Our Car Selection</h2>
+    <br>
+  <div class="carousel" id="test1">
+  	<input type="radio" name="item" value="1" checked>
+  	<div>
+      <img src="Lamborghini.png" onclick="changePage(1)">
+  	</div>
+
+  	<input type="radio" name="item" value="2">
+  	<div>
+       <img src="suv.png" onclick="changePage(2)">
+  	</div>
+
+  	<input type="radio" name="item" value="3">
+  	<div>
+       <img src="Nissan-GTR.png" onclick="changePage(2)">
+  	</div>
+
+  	<input type="radio" name="item" value="4">
+  	<div>
+  		<img src="bugatti.png" onclick="changePage(3)">
+  	</div>
+
+    <input type="radio" name="item" value="5">
+  	<div>
+  		<img src="Tesla.png" onclick="changePage(6)">
+  	</div>
+    <input type="radio" name="item" value="6">
+  	<div>
+  		<img src="Audi.png" onclick="changePage(4)">
+  	</div>
+  </div>
+
+  <script>
+  var page = 0;
+  async function changePage(page) {
+    if (page == 1) {
+      window.location.assign("lambo.html")
+    }
+    else if (page == 2) {
+      window.location.assign("nissan.html")
+    }
+    else if (page == 3) {
+      window.location.assign("bugatti.html")
+    }
+    else if (page == 4) {
+      window.location.assign("audi.html")
+    }
+    else if (page == 5) {
+      window.location.assign("suv.html")
+    }
+    else if (page == 6) {
+      window.location.assign("tesla.html")
+    }
+  }
+  </script>
