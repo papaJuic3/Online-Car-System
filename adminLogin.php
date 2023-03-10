@@ -1,6 +1,6 @@
 <?php include_once 'header.php'; ?>
 <style>
-.login-form {
+.admin-login-form {
   margin: auto;
   width: 50%;
   background-color: #d3d3d3;
@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.login-form h2 {
+.admin-login-form h2 {
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -18,7 +18,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #d3d3d3;
 }
 
 .form-control {
@@ -50,7 +49,6 @@
 .error {
   color: #ff0000;
 }
-
 button[type="submit"] {
   background-color: #53adca;
   border: none;
@@ -67,7 +65,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #4CAF50;
+  background-color: #00008b;
 }
 
 .signup-link {
@@ -86,13 +84,13 @@ button[type="submit"]:hover {
 }
 
 </style>
-<section class="login-form">
-  <h2>Log In</h2>
+<section class="admin-login-form">
+  <h2>Admin Log In</h2>
   <div class="login-form-container">
-    <form action="includes/login.inc.php" method="post">
+    <form action="includes/adminLogin.inc.php" method="post">
       <div class="form-control">
         <label for="username">Username/Email:</label>
-        <input type="text" id="username" name="uid">
+        <input type="text" id="username" name="username">
       </div>
       <div class="form-control">
         <label for="password">Password:</label>
@@ -100,7 +98,6 @@ button[type="submit"]:hover {
       </div>
       <button type="submit" name="submit">Log In</button>
     </form>
-    <p class="signup-link">Don't have an account? <a href="signup.php">Sign up</a></p>
   </div>
   <?php
   if (isset($_GET["error"])) {

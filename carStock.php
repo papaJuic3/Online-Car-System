@@ -1,11 +1,13 @@
+<?php include_once 'header.php'; ?>
 <?php
 $serverName = "localhost";
 $dBUsername = "root";
 $dBPassword = "";
 $dBName = "ccse";
+$port = "3307";
 
 // connect the database with the server
-$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName, $port);
 
 	// if error occurs
 	if (!$conn)
@@ -33,6 +35,35 @@ $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 		margin: 5px;
 		text-align: center;
 	}
+	table {
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+th, td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+th {
+	background-color: #f2f2f2;
+}
+td button {
+	padding: 5px;
+	border: none;
+	background-color: #53adca;
+	background-repeat: no-repeat;
+	position: center;
+	background-size: contain;
+	cursor: pointer;
+	color: white;
+}
+
+td button:hover {
+background-color: blue;
+opacity: 0.8;
+}
 </style>
 
 <body>

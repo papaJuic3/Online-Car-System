@@ -4,6 +4,7 @@
   position: relative;
   width: 100px;
   height: 200px;
+  z-index: 1;
 }
 .carousel	input {
   position: absolute;
@@ -44,7 +45,7 @@ input:checked + div {
 body {
   font: 90% / 1.5 Arial;
   text-align: center;
-  background-color: black;
+  background-color: white;
 }
 .title {
   font-family: 'Playfair Display', serif;
@@ -122,11 +123,12 @@ input:checked ~ input {
 /* Main level */
 .menu {
   margin: 50px auto;
-  width: 10000px;
+  width: 800px;
   /* http://www.red-team-design.com/horizontal-centering-using-css-fit-content-value */
   width: -moz-fit-content;
   width: -webkit-fit-content;
   width: fit-content;
+  z-index: 2;
 }
 
 .menu > li {
@@ -134,6 +136,7 @@ input:checked ~ input {
   float: left;
   position: relative;
   transform: skewX(25deg);
+  z-index: 2;
 }
 
 .menu a {
@@ -143,15 +146,18 @@ input:checked ~ input {
   text-decoration: none;
   font-family: Arial, Helvetica;
   font-size: 14px;
+  z-index: 2;
 }
 
 .menu li:hover {
   background: #e74c3c;
+  z-index: 2;
 }
 
 .menu > li > a {
   transform: skewX(-25deg);
   padding: 1em 2em;
+  z-index: 2;
 }
 
 /* Dropdown */

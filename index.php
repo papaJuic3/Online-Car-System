@@ -38,48 +38,39 @@
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="Lamborghini.png" alt="Lamborghini" style="width:100%;">
+        <img src="lambo.png" onclick="changePage(1)" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Lamborghini Hurracan</h3>
         </div>
       </div>
 
       <div class="item">
-        <img src="Audi.png" alt="Audi TT" style="width:100%;">
+        <img src="tt.png" onclick="changePage(2)" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Audi TT</h3>
         </div>
       </div>
 
       <div class="item">
-        <img src="bugatti.png" alt="New York" style="width:100%;">
+        <img src="bug.png" onclick="changePage(3)" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Bugatti</h3>
         </div>
       </div>
 
       <div class="item">
-        <img src="Nissan-GTR.png" alt="New York" style="width:100%;">
+        <img src="nissan-gtr.jpg" onclick="changePage(4)" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Nissan GTR</h3>
         </div>
       </div>
 
       <div class="item">
-        <img src="suv.png" alt="New York" style="width:100%;">
+        <img src="RS.png" onclick="changePage(5)" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Audi SUV</h3>
         </div>
       </div>
 
       <div class="item">
-        <img src="Tesla.png" alt="New York" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>Tesla Model X</h3>
+        <img src="tesla.jpg" onclick="changePage(6)" style="width:100%;">
         </div>
       </div>
-
-    </div>
 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -92,6 +83,29 @@
     </a>
   </div>
 </div>
-
+<script>
+var page = 0;
+async function changePage(page) {
+  if (page == 1) {
+    window.location.assign("lambo.php")
+  }
+  else if (page == 2) {
+    window.location.assign("audi.php")
+  }
+  else if (page == 3) {
+    window.location.assign("bug.php")
+  }
+  else if (page == 4) {
+    window.location.assign("nissan.php")
+  }
+  else if (page == 5) {
+    window.location.assign("suv.php")
+  }
+  else if (page == 6) {
+    window.location.assign("tesla.php")
+  }
+}
+</script>
 </body>
 </html>
+<?php include_once 'footer.php'; ?>

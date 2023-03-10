@@ -1,36 +1,41 @@
+<?php include_once 'header.php'; ?>
 <?php
-  session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (isset($_SESSION['useruid'])) {
   $username = $_SESSION['useruid'];
-  echo "Current user: $username";
+  $serverName = "localhost";
+  $dBUsername = "root";
+  $dBPassword = "";
+  $dBName = "ccse";
+  $port = "3307";
+
+  // connect the database with the server
+  $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName, $port);
+
+  // if error occurs
+  if (!$conn)
+  {
+    header("location: ../profile.php?error=stmtfailed");
+    exit();
+  }
+
+  $sql = "SELECT * FROM applications WHERE username='$username';";
+  $result = ($conn->query($sql));
+  //declare array to store the data of database
+  $rows = [];
+  if ($result->num_rows > 0)
+  {
+    // fetch all data from db into array
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+  }
 }
 else {
   echo "No user logged in.";
 }
-?>
-<?php
-$serverName = "localhost";
-$dBUsername = "root";
-$dBPassword = "";
-$dBName = "ccse";
 
-// connect the database with the server
-$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
-
-	// if error occurs
-	if (!$conn)
-	{
-		die("Connection Failed:" . mysqli_connect_error());
-	}
-  $query= mysqli_query("SELECT * FROM `applications` WHERE `username` = '".$_SESSION['useruid']."' ")or die(mysqli_error());
-  $arr = mysqli_fetch_array($query);
-  $num = mysqli_numrows($query);
-	if ($result->num_rows > 0)
-	{
-		// fetch all data from db into array
-		$row = $result->fetch_all(MYSQLI_ASSOC);
-	}
 ?>
 
 <!DOCTYPE html>
@@ -42,39 +47,69 @@ $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 		margin: 5px;
 		text-align: center;
 	}
+	table {
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+th, td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+th {
+	background-color: #f2f2f2;
+}
+td button {
+	padding: 5px;
+	border: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	cursor: pointer;
+}
+td button[name="approve_application"] {
+	background-image: url('tick.png');
+}
+td button[name="reject_application"] {
+	background-image: url('cross.png');
+}
 </style>
 
 <body>
-	<table>
-		<thead>
-			<tr>
-				<th>Applicant's Name:</th>
-				<th>Applicant's Address:</th>
-				<th>Applicant's Bank Details:</th>
-				<th>Applicant's Personal Info:</th>
-				<th>Application Status:</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-			if(!empty($row))
-			foreach($row as $rows)
-			{
-			?>
-			<tr>
-				 <!-- <td><?php // echo 'First Name:' . ', ' . $arr['first_name']; . ', ' . 'Last Name:' . ', ' . $arr['last_name']; ?></td> -->
-        <td>First Name: <?php echo $arr['first_name']; ?></td>
-				<!-- <td><?php //echo  'Postcode:' . ', ' . $arr['postcode'] . ', ' . 'Address:' . ', ' . $rows['address'] . ', ' . 'County and Country:' . ', ' . $rows['county'] . ', ' . $rows['country']; ?></td> -->
-				<!-- <td><?php //echo $arr['card_type'] . ', ' . $arr['card_number'] . ', ' . $rows['cvv'] . ', ' . $rows['sort_code']; ?></td> -->
-				<!-- <td><?php //echo $rows['dob'] . ', ' . $arr['residential'] . ', ' . $rows['marital'] . ', ' . $rows['emp_hist']; ?></td> -->
-				<!-- <td><?php //echo $rows['application_status']; ?></td> -->
-			</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Applicant's Name:</th>
+        <th>Applicant's Address:</th>
+        <th>Applicant's Bank Details:</th>
+        <th>Applicant's Personal Information:</th>
+        <th>Applied For Car:</th>
+        <th>Application Status:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      if(!empty($rows))
+      foreach($rows as $row)
+      {
+      ?>
+      <tr>
+        <td><?php echo 'First Name:' . ', ' . $row['first_name'] . ', ' . 'Last Name:' . ', ' . $row['last_name']; ?></td>
+        <td><?php echo  'Postcode:' . ', ' . $row['postcode'] . ', ' . 'Address:' . ', ' . $row['address'] . ', ' . 'County and Country:' . ', ' . $row['county'] . ', ' . $row['country']; ?></td>
+        <td><?php echo $row['card_type'] . ', ' . $row['card_number'] . ', ' . $row['cvv'] . ', ' . $row['sort_code']; ?></td>
+        <td><?php echo $row['dob'] . ', ' . $row['residential'] . ', ' . $row['marital'] . ', ' . $row['emp_hist']; ?></td>
+        <td><?php echo $row['car']; ?></td>
+        <td><?php echo $row['application_status']; ?></td>
+      </tr>
+      <?php } ?>
+    </tbody>
+  </table>
 </body>
 </html>
 
 <?php
-	mysqli_close($conn);
+mysqli_close($conn);
 ?>

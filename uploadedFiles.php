@@ -1,3 +1,4 @@
+<?php include_once 'header.php'; ?>
 <style>
 .file-list {
   display: flex;
