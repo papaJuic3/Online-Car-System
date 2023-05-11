@@ -35,6 +35,11 @@ pool:
 steps:
 - checkout: self   # Fetches the source code of the repository
 
+- task: UseDotNet@2
+  inputs:
+    version: '6.0.x'
+    includePreviewVersions: true
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
