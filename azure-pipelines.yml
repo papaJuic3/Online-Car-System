@@ -3,23 +3,44 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# trigger:
+#   - main
+
+# pool:
+#   vmImage: ubuntu-latest
+
+# steps:
+#   - script: echo Hello, world!
+#     displayName: 'Run a one-line script'
+
+#   - script: |
+#       echo Add other tasks to build, test, and deploy your project.
+#       echo See https://aka.ms/yaml
+#     displayName: 'Run a multi-line script'
+
+#   - script: |
+#       # Add your deployment commands here
+#       # For example, deploying to a remote server or a cloud platform
+#       echo Deploying your code...
+#     displayName: 'Deploy'
+
 trigger:
-  - main
+  branches:
+    include:
+      - main  # Specify the branch you want to trigger the pipeline
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
+- checkout: self   # Fetches the source code of the repository
 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
 
-  - script: |
-      # Add your deployment commands here
-      # For example, deploying to a remote server or a cloud platform
-      echo Deploying your code...
-    displayName: 'Deploy'
+- script: |
+    echo Building your project...
+    # Replace the example commands with your actual build commands
+    npm install
+    npm run build
+  displayName: 'Build'
