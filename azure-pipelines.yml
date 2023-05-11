@@ -40,10 +40,12 @@ steps:
 
 - script: |
     echo Restoring dependencies...
+    cd ../Online-Car-System
     dotnet restore
   displayName: 'Restore Dependencies'
 
 - script: |
     echo Building your project...
+    cd ../Online-Car-System
     dotnet build --configuration Release
   displayName: 'Build'
